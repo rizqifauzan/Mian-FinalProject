@@ -26,9 +26,3 @@
 - **Name:** [MIAN AGAVE]
 - **Email:** [mianagave2020@gmail.com]
 - **LinkedIn & GitHub:** [https://www.linkedin.com/in/mian-agave-tamba-88079b307/ & https://github.com/mianagave/]
-
-
-
-
-
-
