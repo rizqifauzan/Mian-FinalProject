@@ -1,9 +1,10 @@
 package hooks;
 
-import io.cucumber.java.After;
-import io.cucumber.java.AfterAll;
-import io.cucumber.java.Before;
-import io.cucumber.java.BeforeAll;
+import helper.Utility;
+import io.cucumber.java.*;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+
 import static helper.Utility.quitDriver;
 import static helper.Utility.startDriver;
 
@@ -28,9 +29,15 @@ public class Hooks {
     }
 
     @After
-    public static void afterTest() throws InterruptedException {
+    public static void afterTest(Scenario scenario) throws InterruptedException {
 
         Thread.sleep(3000);
+
+        if (scenario.isFailed()) {
+            byte[] screenshot = ((TakesScreenshot) Utility.driver).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot, "image/png", "Screenshot");
+        }
+
        quitDriver();
     }
 
