@@ -43,7 +43,8 @@ public class LoginStefDef {
     }
 
     @Then("the user should see a welcome message {string}")
-    public void theUserShouldSeeAWelcomeMessage(String expectedMessage) {
+    public void theUserShouldSeeAWelcomeMessage(String expectedMessage) throws InterruptedException {
+        Thread.sleep(2000);
         loginPage.greetingUser(expectedMessage);
     }
 }
